@@ -1,1 +1,51 @@
 
+//Write a program that finds the second highest number in a float type array of 20
+//elements using pointer.
+# include<iostream>
+using namespace std;
+float secondHighest(float *arr , int size ) ;
+int main()
+{
+	int n;
+	cout << "Enter no of elements:"<<endl;
+	cin >>n;
+	float arr[n];
+	int i;
+	for ( i=0 ; i<n ; i+1)
+	{
+		cout <<"Enter the " << i++ <<" element of array:";
+		cin>>arr[i];
+	}
+	float z=secondHighest(arr , n);
+	cout <<"Second largest no is " << z;
+}
+float secondHighest(float *arr , int size) 
+{
+
+	float temp;
+	int i ,j;
+	float large=arr[0];
+	float secondlarge=arr[1];
+	if (large < secondlarge)
+	{
+		temp = large;
+		large = secondlarge;
+		secondlarge = temp;
+	}
+	for ( i=2;i<size ; i++)
+	{
+		if ( arr[i]>large)
+		{
+			secondlarge = large;
+			large = arr[i];
+		}
+	else if( arr[i]>secondlarge && arr[i]!=large)
+		{
+			secondlarge = arr[i];
+		}
+	}
+
+	return secondlarge;
+	
+}
+
