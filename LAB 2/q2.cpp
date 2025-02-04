@@ -5,10 +5,9 @@
 # include<iostream>
 # include<string>
 using namespace std;
-void * multiply(void *arr , void * size)
+void * multiply(void *arr , void * size,int multiply)
 {
     int * pptr =(int*)arr;
-    int multiply=1;
     int  psize=*(int*)size;
    for (int i=0 ; i<psize ; i++)
    {
@@ -23,7 +22,7 @@ int main()
    int a=5;
    int arr[5]={1,2,3,4,5,};
    void * ptr=(void*) arr;
-   void * retur=multiply (ptr , (void*)&a);
+   void * retur=multiply (ptr , (void*)&a,1);
    int as=*(int*)retur;
    cout<<as;
 }
